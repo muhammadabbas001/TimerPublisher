@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+
+//ViewModels
 import Combine
 
 final class ViewModel: ObservableObject{
@@ -22,6 +24,7 @@ final class ViewModel: ObservableObject{
         setupPublisher()
     }
     
+    //Publisher
     private func setupPublisher(){
         anyCancelable = Timer.publish(every: 1, on: .main, in: .default)
             .autoconnect()
@@ -32,6 +35,7 @@ final class ViewModel: ObservableObject{
     }
 }
 
+//Views
 struct ContentView: View {
     @ObservedObject var viewModel = ViewModel()
     var body: some View {
